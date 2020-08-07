@@ -20,7 +20,7 @@ $(document).ready(function () {
         console.log(data.data);
         if (data.error == false) {
           $("#displaydata").html("");
-          $("#username").html(data.data.user_name);
+          $("#username").html(data.data.name);
           gen = data.data.gender == "m" ? "Male" : "Female";
           status =
             data.data.Status == false
@@ -43,6 +43,11 @@ $(document).ready(function () {
               data.data.affiliationCode +
               "-" +
               data.data.membershipNumber +
+              "</td></tr>" +
+              "<tr><td>Certificate Link</td><td>" +
+              "<a target=_blank href='http://15.206.249.190/api/" +
+              data.data.membershipPDF +
+              "'>Click Here</a>" +
               "</td></tr>" +
               "<tr><td>Email</td><td>" +
               data.data.email +
