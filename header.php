@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <!-- <meta value="https://urgentneed.herokuapp.com/api/" id="website-url">     -->
-    <!-- <meta value="http://15.206.249.190/api/" id="website-url"> -->
-    <meta value="http://localhost:3000/api/" id="website-url">
+    <meta value="http://15.206.249.190/api/" id="website-url">
+    <!-- <meta value="http://localhost:3000/api/" id="website-url"> -->
     <title>Pragya | Admin</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
