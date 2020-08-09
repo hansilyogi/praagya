@@ -6,7 +6,7 @@ $(document).ready(function () {
   function loaddata() {
     $.ajax({
       type: "POST",
-      url: $("#website-url").attr("value") + "user/get",
+      url: $("#website-url").attr("value") + "user/webget",
       data: { user_id: id },
       dataType: "json",
       cache: false,
