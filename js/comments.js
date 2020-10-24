@@ -41,7 +41,7 @@ $(document).ready(function () {
                     data.data[i].comment +
                     `</td>
                     <td>` +
-                    data.data[i].post_id.post_img +
+                    data.data[i].user_img +
                     `</td>
                      </tr>`
                 );
