@@ -17,7 +17,8 @@
           </div>
           <!-- /.container-fluid -->
         </div>        
-        <div class="content">          
+        <div class="content">
+          <?php include('dashboardContent.php'); ?>  
         </div>        
       </div>      
       <footer class="main-footer">
