@@ -6,6 +6,7 @@ $(document).ready(function () {
         type: "POST",
         url: $("#website-url").attr("value") + "comment/fetch_all",
         dataType: "json",
+        data: { post_id : "5f3e37c16d1fd209c3dcc396" },
         cache: false,
         beforeSend: function () {
           $("#displaydata").html(
@@ -31,28 +32,19 @@ $(document).ready(function () {
                       "  data-id=" +
                       data.data[i]._id +
                       ' data-up = 1 aria-hidden="true"></i>';
-                // $("#displaydata").append(
-                //   `<tr>
-                //     <td>` +
-                //     data.data[i].sender_id.name +
-                //     `</td>
-                //         <td>` +
-                //     data.data[i].receiver_id.name +
-                //     `</td>
-                //     <td>` +
-                //     data.data[i].message +
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].img +
-                //     `</td>
-                //      <td>` + 
-                //     data.data[i].createdAt +
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].updatedAt + 
-                //     `</td>
-                //      </tr>`
-                // );
+                $("#displaydata").append(
+                  `<tr>
+                    <td>` +
+                    data.data[i].name +
+                    `</td>
+                        <td>` +
+                    data.data[i].comment +
+                    `</td>
+                    <td>` +
+                    data.data[i].post_id.post_img +
+                    `</td>
+                     </tr>`
+                );
               }
             } else {
               $("#displaydata").html(
