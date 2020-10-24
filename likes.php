@@ -48,6 +48,6 @@
       </footer>
     </div>        
     <?php include('script.php'); ?>
-    <script src="js/posts.js"></script>
+    <script src="js/likes.js"></script>
   </body>
 </html>

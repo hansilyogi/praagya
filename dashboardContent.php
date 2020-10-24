@@ -78,7 +78,7 @@
             </div>
 
             <div class="col-lg-4 col-6">
-            <a href="block_user.php" class="nav-link" style="text-decoration: none;color:black;">
+            <a href="comments.php" class="nav-link" style="text-decoration: none;color:black;">
                 <div class="small-box shadow" style="background-color:#ede6e1">
                 <div class="icon">
                       <i class="fa fa-comments"></i>
@@ -97,7 +97,7 @@
           <h5><b>State & City Details</b></h5>
           <div class="row">
               <div class="col-lg-4 col-6 h-auto">
-              <a href="block_user.php" class="nav-link" style="text-decoration: none;color:black;">
+              <a href="state.php" class="nav-link" style="text-decoration: none;color:black;">
                   <div class="small-box shadow" style="background-color:#ede6e1">
                     <div class="icon">
                         <i class="fa fa-map-marker"></i>
@@ -117,7 +117,7 @@
               </div>
 
               <div class="col-lg-4 col-6">
-              <a href="block_user.php" class="nav-link" style="text-decoration: none;color:black;">
+              <a href="city.php" class="nav-link" style="text-decoration: none;color:black;">
                   <div class="small-box shadow" style="background-color:#ede6e1">
                     <div class="icon">
                         <i class="fas fa-city"></i>
