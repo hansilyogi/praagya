@@ -1,6 +1,5 @@
 $(document).ready(function () {
     loaddata();
-    loaddata_1();
     $img_url =[];
 
     function loaddata() {

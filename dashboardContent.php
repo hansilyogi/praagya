@@ -6,7 +6,7 @@
                       <i class="fas fas fa-users"></i>
                   </div>
                 <div class="inner">
-                  <h3><label  id="user" name="user" text="0" value="29">29</label></h3>
+                  <h3><label  id="user" name="user" text="0" value="0"></label></h3>
                   <h4><b>Users</b></h4>
                   <!-- <h6>  Total - 29</h6> -->
                 </div>
@@ -21,7 +21,7 @@
                       <i class="fas fa-sticky-note"></i>
                   </div>
                 <div class="inner">
-                  <h3><label  id="postcount" name="postcount" text="0" value="8">8</label></h3>
+                  <h3><label  id="postcount" name="postcount" text="0" value="0"></label></h3>
                   <h4><b>Posts</b></h4>
                   <!-- <h6>  Total - 8</h6> -->
                 </div>
@@ -36,7 +36,7 @@
                       <i class="fa fa-ban"></i>
                 </div>
                 <div class="inner">
-                  <h3><label  id="blockusers" name="blockusers" value="1">1</label></h3>
+                  <h3><label  id="blockusers" name="blockusers" value="0"></label></h3>
                   <h4><b>Blocked Users Data</b></h4>
                 </div>
               </div>
@@ -56,7 +56,7 @@
                       <i class="fa fa-envelope"></i>
                   </div>
                   <div class="inner">
-                    <h3><label  id="messagetab" name="messagetab" value="12">12</label></h3>
+                    <h3><label  id="messagetab" name="messagetab" value="0"></label></h3>
                     <h5><b>Messages</b></h5>
                   </div>
                 </div>

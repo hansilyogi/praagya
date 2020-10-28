@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta value="http://15.206.249.190/api/" id="website-url">
+<!-- <meta value="http://15.206.249.190/api/" id="website-url"> -->
 <?php include('header.php'); ?>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
