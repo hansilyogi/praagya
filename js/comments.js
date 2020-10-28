@@ -40,9 +40,9 @@ $(document).ready(function () {
                         <td>` +
                     data.data[i].comment +
                     `</td>
-                    <td>` +
-                    data.data[i].user_img +
-                    `</td>
+                    <td>
+                    <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+ data.data[i].post_id.post_img +`" alt="Photo" width="100" height="100">
+                    </td>
                      </tr>`
                 );
               }

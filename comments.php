@@ -28,7 +28,10 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Comment</th>
-                                <th>Post Image</th>                       
+                                <!-- <th>Post Id</th> -->
+                                <!-- <th>User Id</th> -->
+                                <!-- <th>User Image</th>       -->
+                                <th>Post Image</th>                 
                             </tr>
                         </thead>
                     <tbody id="displaydata">

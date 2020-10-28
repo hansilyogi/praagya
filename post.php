@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
 <?php include('header.php'); ?>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
     <?php include('navbar.php'); ?>
-      <div class="content-wrapper" align="center">        
+      <div class="content-wrapper">        
         <div class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
-              <div class="col-sm-12">
+              <div class="col-sm-12" align="center">
                 <h1 class="m-0 text-dark">Users Post</h1>
               </div>
               <!-- /.col -->
@@ -44,7 +45,9 @@
         </div>  
              -->
         <div id="displaydata_1">
-        </div>    
+        </div>
+        <div id="displaydata_2">
+        </div>
       <footer class="main-footer">
         All rights reserved.
       </footer>
