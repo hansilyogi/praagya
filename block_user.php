@@ -24,8 +24,8 @@
                     <div class="card-header">
                         <h3 class="card-title">Display Data</h3>
                     </div>            
-                    <table class="table table-bordered">
-                        <thead>
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-dark">
                             <tr>
                                 <th>User Id</th>
                                 <th>Victim Id</th>

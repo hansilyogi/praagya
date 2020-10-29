@@ -17,26 +17,38 @@
           </div>
           <!-- /.container-fluid -->
         </div>        
+        <!-- <div class="content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card direct-chat direct-chat-warning">
+                <div class="card-header">
+                  <h3 class="card-title">Direct Chat</h3>
+                </div>
+              </div>
+            <div>
+          </div>
+        </div> -->
+
         <div class="content">
-            <div class="container-fluid table-responsive">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Display Data</h3>
-                    </div>            
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Sender</th>
-                                <th>Receiver</th>
-                                <th>Message</th>                              
-                                <th>Image</th>                              
-                                <th>Create At</th>                              
-                                <th>Last Updated</th>                              
-                            </tr>
-                        </thead>
-                    <tbody id="displaydata">
-                    </tbody>
-                </table>
+          <div class="container-fluid table-responsive">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Display Data</h3>
+              </div>            
+              <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Sender</th>
+                    <th>Receiver</th>
+                    <th>Message</th>                              
+                    <th>Image</th>                              
+                    <th>Create At</th>                              
+                    <th>Last Updated</th>                              
+                  </tr>
+                </thead>
+                <tbody id="displaydata">
+                </tbody>
+              </table>
             </div>
           </div>
         </div>        

@@ -81,8 +81,8 @@ $(document).ready(function () {
                         </div>
                       </div>
                       <div class="card-body">
-                        <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+ data.data[i].post_img +`" alt="Photo">
-                        <p>I took this photo this morning. What do you guys think?</p>
+                        <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+ data.data[i].post_img +`" alt="Photo"><br><br>
+                        <p>`+ data.data[i].post_data +`</p><hr>
                         <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
                         <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
                         <span class="float-right text-muted">` + data.data[i].likes +` ` + `likes -` +` `+ data.data[i].commentsCount + ` ` + `comments</span><hr>

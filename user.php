@@ -21,11 +21,11 @@
         <div class="content">
             <div class="container-fluid table-responsive">
                 <div class="card">
-                    <div class="card-header">
+                    <!-- <div class="card-header">
                         <h3 class="card-title">Display Data</h3>
-                    </div>            
-                    <table class="table table-bordered">
-                        <thead>
+                    </div>             -->
+                    <table id="example1" class="table table-bordered table-hover">
+                        <thead class="thead-dark">
                             <tr>
                                 <th>Name</th>
                                 <th>Mail</th>
