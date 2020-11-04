@@ -2,7 +2,7 @@
 <html lang="en">
 <meta value="http://15.206.249.190/api/" id="website-url">
 <?php include('header.php'); ?>
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
     <?php include('navbar.php'); ?>
       <div class="content-wrapper">        

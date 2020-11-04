@@ -13,7 +13,7 @@ $(document).ready(function () {
         );
       },
       success: function (data) {
-        console.log(data.data);
+        // console.log(data.data);
         if (data.error == false) {
           if (data.data.length > 0) {
             $("#displaydata").html("");
@@ -21,14 +21,14 @@ $(document).ready(function () {
               status =
                 data.data[i].Status == false
                   ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
-                    data.data[i]._id +
+                    data.data[i]._id + 
                     " data-id=" +
-                    data.data[i]._id +
+                    data.data[i]._id + 
                     ' data-up = 0 aria-hidden="true"></i>'
                   : '<i class="fa fa-toggle-on text-success statusupdate" id=user-' +
                     data.data[i]._id +
                     "  data-id=" +
-                    data.data[i]._id +
+                    data.data[i]._id + 
                     ' data-up = 1 aria-hidden="true"></i>';
               $("#displaydata").append(
                 `<tr>
@@ -63,6 +63,23 @@ $(document).ready(function () {
       },
     });
   }
+
+  function fun_reload(){
+    location.reload();
+  }
+
+  $('#txt_searchemployee').keyup(function(){
+    var search = $(this).val();
+    $('table tbody tr').hide();
+    var len = $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0)+'")').length;
+    if(len > 0){
+      $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0) + search.slice(1)+'")').each(function(){
+        $(this).closest('tr').show();
+      });
+    }else{
+      $('.notfound').show();
+    }
+  });
 
   $(document).on("click", ".statusupdate", function () {
     var dataId = $(this).attr("data-id");

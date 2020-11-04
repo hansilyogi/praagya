@@ -42,6 +42,20 @@
                 </div>
               </a>
             </div>
+
+            <div class="col-lg-4 col-6">
+              <a href="reports.php" class="nav-link" style="text-decoration: none;color:black;" >
+                <div class="small-box" style="background-color:#008080">
+                  <div class="icon">
+                        <i class="fa fa-bug" style="color:lightgreen"></i>
+                  </div>
+                  <div class="inner">
+                    <h3><label  id="report" name="report" value="0"></label></h3>
+                    <h4><b>Reported Users</b></h4>
+                  </div>
+                </div>
+              </a>
+            </div>
         
           </div>
 
@@ -84,7 +98,7 @@
                       <i class="fa fa-comments" style="color:lightgreen"></i>
                   </div>
                   <div class="inner">
-                    <h3><label  id="commentstab" name="commentstab" value="0">14</label></h3>
+                    <h3><label  id="commentstab" name="commentstab" value="0"></label></h3>
                     <h5><b>Comments</b></h5>
                   </div>
                 </div>

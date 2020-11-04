@@ -5,92 +5,57 @@ $(document).ready(function () {
     function loaddata() {
       $.ajax({
         type: "POST",
-        url: $("#website-url").attr("value") + "post/fetch",
+        url: $("#website-url").attr("value") + "post/get_all_post_comments",
         dataType: "json",
-        data : {
-          "user_id":"5f39b920412523089a4a5b55",
-          "page":"1"
-        },
         cache: false,
         beforeSend: function () {
           $("#displaydata").html(
             '<tr><td colspan="8" class="text-center font-weight-bold">Loading...</td></tr></center>'
           );
-          // $("#displaydata_1").html(
-          //   '<h5 class="text-center font-weight-bold">This is executed</h5></center>'
-          // );
         },
         success: function (data) {
-          console.log(data.data);
-          
-          if (data.error == false) {
-            if (data.data.length > 0) { 
+          console.log(data);
+          if (data.isSuccess == true) {
+            if (data.Data.length > 0) { 
               $("#displaydata").html("");
-              for (i = 0; i < data.data.length; i++) {
-                $img_url[i] = data.data[i].user_id;
-                console.log($img_url[i]);
+              for (i = 0; i < data.Data.length; i++) {
+                create_date = moment(data.Data[i].createdAt).format("DD/MM/YYYY");
+                // comment_date = moment(data.Data[i].Comments[0].created).format("DD/MM/YYYY");
+                $img_url[i] = data.Data[i].user_id;
                 status =
-                  data.data[i].Status == false
+                  data.Data[i].Status == false
                     ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
-                      data.data[i]._id +
+                      data.Data[i]._id +
                       " data-id=" +
-                      data.data[i]._id +
+                      data.Data[i]._id +
                       ' data-up = 0 aria-hidden="true"></i>'
                     : '<i class="fa fa-toggle-on text-success statusupdate" id=user-' +
-                      data.data[i]._id +
+                      data.Data[i]._id +
                       "  data-id=" +
-                      data.data[i]._id +
+                      data.Data[i]._id +
                       ' data-up = 1 aria-hidden="true"></i>';
-                // $("#displaydata").append(
-                //   `<tr>
-                //     <td>` +
-                //     data.data[i].user_id.name +
-                //     `</td>
-                //         <td>` +
-                //     data.data[i].post_data +
-                //     `</td>
-                //     <td>` +
-                //     data.data[i].likes +
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].commentsCount +
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].post_img +
-                //     `</td>
-                //      <td>` + 
-                //     data.data[i].usersLiked +
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].createdAt + 
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].updatedAt +
-                //     `</td>` + 
-                //     `</tr>`
-                // );
-              $("#displaydata_1").append(
-                `<div class="row">
-                  <div class="col-md-6 mx-auto">
-                    <div class="card card-widget">
-                      <div class="card-header">
-                        <div class="user-block">
-                          <img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.data[i].user_id.img + `" alt="User Image">
-                          <span class="username"><a href="#">`+ data.data[i].user_id.name +`</a></span>
-                          <span class="description">Shared publicly - `+ data.data[i].updatedAt +`</span>
+                  $("#displaydata_1").append(
+                    `<div class="row">
+                      <div class="col-md-6 mx-auto">
+                        <div class="card card-widget">
+                          <div class="card-header">
+                            <div class="user-block">
+                              <img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image">
+                              <span class="username"><a href="#">`+data.Data[i].user_id.name+`</a></span>
+                              <span class="description">Shared publicly -`+create_date+`</span>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+data.Data[i].post_img+`" alt="Photo"><br><br>
+                            <p> Status :`+ data.Data[i].post_data +`</p><hr>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                            <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span><hr>
+                          </div>
                         </div>
                       </div>
-                      <div class="card-body">
-                        <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+ data.data[i].post_img +`" alt="Photo"><br><br>
-                        <p>`+ data.data[i].post_data +`</p><hr>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                        <span class="float-right text-muted">` + data.data[i].likes +` ` + `likes -` +` `+ data.data[i].commentsCount + ` ` + `comments</span><hr>
-                      </div>
-                    </div>
-                  </div>
-                </div>`
-                );
+                    </div>`
+                  );
               }
             } else {
               $("#displaydata").html(
@@ -104,44 +69,35 @@ $(document).ready(function () {
       });
     }
 
-    function loaddata_1() {
+    function loaddata_demo() {
       $.ajax({
         type: "POST",
-        url: $("#website-url").attr("value") + "comment/fetch_all",
+        url: $("#website-url").attr("value") + "post/get_all_post_comments",
         dataType: "json",
-        data: { post_id : "5f3e37c16d1fd209c3dcc396" },
         cache: false,
         beforeSend: function () {
           $("#displaydata").html(
-            '<tr><td colspan="4" class="text-center font-weight-bold">Loading...</td></tr></center>'
+            '<tr><td colspan="8" class="text-center font-weight-bold">Loading...</td></tr></center>'
           );
         },
-        success: function (data_1) {
-          console.log(data_1.data);
-        if (data_1.error == false) {
-            if (data_1.data.length > 0) {
+        success: function (data) {
+          console.log(data);
+          if (data.isSuccess == true) {
+            if (data.Data.length > 0) { 
               $("#displaydata").html("");
-              for (i = 0; i < data_1.data.length; i++) {
-                status =
-                  data_1.data[i].Status == false
-                    ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
-                      data_1.data[i]._id +
-                      " data-id=" +
-                      data_1.data[i]._id +
-                      ' data-up = 0 aria-hidden="true"></i>'
-                    : '<i class="fa fa-toggle-on text-success statusupdate" id=user-' +
-                      data_1.data[i]._id +
-                      "  data-id=" +
-                      data_1.data[i]._id +
-                      ' data-up = 1 aria-hidden="true"></i>';
-                $("#displaydata_2").append(
-                  `<div class="row">
-                    <div class="col-md-6 mx-auto">
-                      <div class="card card-widget">
-                      </div>
-                    </div>
-                  </div>`
-                );
+              for (i = 0; i < data.Data.length; i++) {
+                create_date = moment(data.Data[i].createdAt).format("DD/MM/YYYY");
+                // comment_date = moment(data.Data[i].Comments[0].created).format("DD/MM/YYYY");
+                $img_url[i] = data.Data[i].user_id;
+                  $("#img1").append(
+                    `<img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image"></img>`
+                  );
+                  $("#username").append(
+                    data.Data[i].user_id.name
+                  );
+                  $('#des').append(
+                    `Shared publicly - ` +create_date
+                  );
               }
             } else {
               $("#displaydata").html(
@@ -149,7 +105,7 @@ $(document).ready(function () {
               );
             }
           } else {
-            alert(data_1.data);
+            alert(data.data);
           }
         },
       });
@@ -183,3 +139,15 @@ $(document).ready(function () {
     });
   });
   
+{/* <div class="card-footer card-comments">
+  <div class="card-comment">
+    <img class="img-circle img-sm" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].Comments[0].user_img+ `" alt="User Image">
+    <div class="comment-text">
+      <span class="username">
+      `+ data.Data[i].Comments[0].name+
+      `<span class="text-muted float-right">`+comment_date+ `</span>
+      </span>`
+      + data.Data[i].Comments[0].comment+
+    `</div>
+  </div>
+  </div> */}

@@ -17,7 +17,7 @@ $(document).ready(function () {
         $("#username").html("Loading...");
       },
       success: function (data) {
-        console.log(data.data);
+        console.log(data);
         if (data.error == false) {
           $("#displaydata").html("");
           $("#username").html(data.data.name);

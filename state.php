@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include('header.php'); ?>
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
     <?php include('navbar.php'); ?>
         <div class="content-wrapper" align="center">        

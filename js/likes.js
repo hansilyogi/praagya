@@ -1,10 +1,10 @@
 $(document).ready(function () {
     loaddata();
-  
+    
     function loaddata() {
       $.ajax({
         type: "POST",
-        url: $("#website-url").attr("value") + "like/create",
+        url: $("#website-url").attr("value") + "like/fetchAllLikes",
         dataType: "json",
         cache: false,
         beforeSend: function () {
@@ -13,46 +13,28 @@ $(document).ready(function () {
           );
         },
         success: function (data) {
-          console.log(data.data);
-          
-        if (data.error == false) {
-            if (data.data.length > 0) {
+          console.log(data);
+          if (data.isSuccess == true) {
+            if (data.Data.length > 0) {
               $("#displaydata").html("");
-              for (i = 0; i < data.data.length; i++) {
-                status =
-                  data.data[i].Status == false
-                    ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
-                      data.data[i]._id +
-                      " data-id=" +
-                      data.data[i]._id +
-                      ' data-up = 0 aria-hidden="true"></i>'
-                    : '<i class="fa fa-toggle-on text-success statusupdate" id=user-' +
-                      data.data[i]._id +
-                      "  data-id=" +
-                      data.data[i]._id +
-                      ' data-up = 1 aria-hidden="true"></i>';
-                // $("#displaydata").append(
-                //   `<tr>
-                //     <td>` +
-                //     data.data[i].sender_id.name +
-                //     `</td>
-                //         <td>` +
-                //     data.data[i].receiver_id.name +
-                //     `</td>
-                //     <td>` +
-                //     data.data[i].message +
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].img +
-                //     `</td>
-                //      <td>` + 
-                //     data.data[i].createdAt +
-                //     `</td>
-                //      <td>` +
-                //     data.data[i].updatedAt + 
-                //     `</td>
-                //      </tr>`
-                // );
+              for(i = 0; i < data.Data.length; i++) {
+                create_date = moment(data.Data[i].post_id.updatedAt).format("DD/MM/YYYY");
+                $("#displaydata_w").append(
+                  `<tr>
+                    <td>` +
+                    data.Data[i].user_id.name +
+                    `</td>
+                    <td>` +
+                    data.Data[i].post_id.likes +
+                    `</td>
+                    <td>` +
+                    data.Data[i].post_id.post_data +
+                    `</td>
+                    <td>` +
+                    create_date +
+                    `</td>
+                  </tr>`
+                );
               }
             } else {
               $("#displaydata").html(
@@ -60,11 +42,33 @@ $(document).ready(function () {
               );
             }
           } else {
-            alert(data.data);
+            alert(data.Data);
           }
         },
       });
     }
+
+    $('#txt_searchemployee').keyup(function(){
+      var search = $(this).val();
+      $('table tbody tr').hide();
+      var len = $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0)+'")').length;
+      if(len > 0){
+        $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0) + search.slice(1)+'")').each(function(){
+          $(this).closest('tr').show();
+        });
+      }else{
+        $('.notfound').show();
+      }
+    });
+
+    function convertdateformate(date){
+      if(date.includes('T')){
+        date = date.split('T')[0];
+        date = date.split('-');
+        date = date[2]+'/'+date[1]+'/'+date[0];
+      }
+      return date;
+  }
   
     $(document).on("click", ".statusupdate", function () {
       var dataId = $(this).attr("data-id");

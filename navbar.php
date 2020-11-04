@@ -41,6 +41,54 @@
                     Users
                   </p>
                 </a>
+              </li>
+              <li class="nav-item">
+                <a href="post.php" class="nav-link">
+                  <i class="nav-icon fas fa-sticky-note"></i>
+                  <p>
+                    Posts
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="reports.php" class="nav-link">
+                  <i class="nav-icon fas fa-bug"></i>
+                  <p>
+                    Reports
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="block_user.php" class="nav-link">
+                  <i class="nav-icon fas fa-ban"></i>
+                  <p>
+                    Block-Users
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="comments.php" class="nav-link">
+                  <i class="nav-icon fas fa-comments"></i>
+                  <p>
+                    Comments
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="message.php" class="nav-link">
+                  <i class="nav-icon fas fa-envelope"></i>
+                  <p>
+                    Messages
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="likes.php" class="nav-link">
+                  <i class="nav-icon fas fa-thumbs-up"></i>
+                  <p>
+                    Likes
+                  </p>
+                </a>
               </li>              
               <li class="nav-item">
                 <a href="index.php" class="nav-link">

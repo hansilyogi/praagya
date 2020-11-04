@@ -5,7 +5,8 @@ $(document).ready(function(){
     loadblockuser();
     loadmessage();
     loadlike();
-    loadcomment();
+    loadreport();
+    // loadcomment();
 
     function loaddata() {
         $.ajax({
@@ -19,7 +20,7 @@ $(document).ready(function(){
             );
         },
         success: function (data) {
-            console.log(data.data);
+            // console.log(data.data);
             if (data.error == false) {
             if (data.data.length > 0) {
                 $("#user").text(data.data.length);
@@ -49,12 +50,14 @@ $(document).ready(function(){
             );
         },
         success: function (data) {
-            console.log(data.data);
+            // console.log(data.data);
             if (data.error == false) {
             if (data.data.length > 0) {
                 $("#postcount").text(data.data.length);
+                $("#commentstab").text(data.data[1].length);
             } else {
                 $("#postcount").text(0);
+                $("#commentstab").text(0);
             }
             } else {
             alert(data.data);
@@ -75,12 +78,38 @@ $(document).ready(function(){
             );
         },
         success: function (data) {
-            console.log(data.data);
+            // console.log(data.data);
             if (data.error == false) {
             if (data.data.length > 0) {
                 $("#blockusers").text(data.data.length);
             } else {
                 $("#blockusers").text(0);
+            }
+            } else {
+            alert(data.data);
+            }
+        },
+        });
+    }
+
+    function loadreport() {
+        $.ajax({
+        type: "POST",
+        url: $("#website-url").attr("value") + "reportPost/getReport",
+        dataType: "json",
+        cache: false,
+        beforeSend: function () {
+            $("#displaydata").html(
+            '<tr><td colspan="5" class="text-center font-weight-bold">Loading...</td></tr></center>'
+            );
+        },
+        success: function (data) {
+            // console.log(data.data);
+            if (data.isSuccess == true) {
+            if (data.Data.length > 0) {
+                $("#report").text(data.Data.length);
+            } else {
+                $("#report").text(0);
             }
             } else {
             alert(data.data);
@@ -101,7 +130,7 @@ $(document).ready(function(){
             );
         },
         success: function (data) {
-            console.log(data.data);
+            // console.log(data.data);
             if (data.error == false) {
             if (data.data.length > 0) {
                 $("#messagetab").text(data.data.length);
@@ -118,7 +147,7 @@ $(document).ready(function(){
     function loadlike() {
         $.ajax({
         type: "POST",
-        url: $("#website-url").attr("value") + "like/create",
+        url: $("#website-url").attr("value") + "like/fetchAllLikes",
         dataType: "json",
         cache: false,
         beforeSend: function () {
@@ -127,45 +156,46 @@ $(document).ready(function(){
             );
         },
         success: function (data) {
-            console.log(data.data);
-            if (data.error == false) {
-            if (data.data.length > 0) {
-                $("#likestab").text(data.data.length);
+            // console.log(data.data);
+            if (data.isSuccess == true) {
+                if (data.Data.length > 0) {
+                    $("#likestab").text(data.Data.length);
+                    console.log('asd');
+                } else {
+                $("#likestab").text(0);
+                }
             } else {
-                $("#likestab").text(12);
-            }
-            } else {
-            alert(data.data);
+                alert("hemmlpo");
             }
         },
         });
     }
 
-    function loadcomment() {
-        $.ajax({
-            type: "POST",
-            url: $("#website-url").attr("value") + "comment/fetch_all",
-            dataType: "json",
-            data: { post_id : "5f3e37c16d1fd209c3dcc396" },
-        cache: false,
-        beforeSend: function () {
-            $("#displaydata").html(
-            '<tr><td colspan="5" class="text-center font-weight-bold">Loading...</td></tr></center>'
-            );
-        },
-        success: function (data) {
-            console.log(data.data);
-            if (data.error == false) {
-            if (data.data.length > 0) {
-                $("#commentstab").text(data.data.length);
-            } else {
-                $("#commentstab").text(0);
-            }
-            } else {
-            alert(data.data);
-            }
-        },
-        });
-    }
+    // function loadcomment() {
+    //     $.ajax({
+    //         type: "POST",
+    //         url: $("#website-url").attr("value") + "comment/fetch_all",
+    //         dataType: "json",
+    //         data: { post_id : "5f3e37c16d1fd209c3dcc396" },
+    //     cache: false,
+    //     beforeSend: function () {
+    //         $("#displaydata").html(
+    //         '<tr><td colspan="5" class="text-center font-weight-bold">Loading...</td></tr></center>'
+    //         );
+    //     },
+    //     success: function (data) {
+    //         console.log(data.data);
+    //         if (data.error == false) {
+    //         if (data.data.length > 0) {
+    //             $("#commentstab").text(data.data.length);
+    //         } else {
+    //             $("#commentstab").text(0);
+    //         }
+    //         } else {
+    //         alert(data.data);
+    //         }
+    //     },
+    //     });
+    // }
 
 });

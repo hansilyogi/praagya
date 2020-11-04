@@ -19,6 +19,7 @@ $(document).ready(function () {
             if (data.data.length > 0) {
               $("#displaydata").html("");
               for (i = 0; i < data.data.length; i++) {
+                create_date = moment(data.data[i].Date).format("DD/MM/YYYY");
                 status =
                   data.data[i].Status == false
                     ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
@@ -34,13 +35,13 @@ $(document).ready(function () {
                 $("#displaydata").append(
                   `<tr>
                     <td>` +
-                    data.data[i].UserId +
+                    data.data[i].UserId.name +
                     `</td>
                         <td>` +
-                    data.data[i].VictimId +
+                    data.data[i].VictimId.name +
                     `</td>
                     <td>` +
-                    data.data[i].Date +
+                    create_date +
                     `</td>
                      <td>` +
                     data.data[i].Status +
@@ -59,6 +60,19 @@ $(document).ready(function () {
         },
       });
     }
+
+    $('#txt_searchemployee').keyup(function(){
+      var search = $(this).val();
+      $('table tbody tr').hide();
+      var len = $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0)+'")').length;
+      if(len > 0){
+        $('table tbody tr:not(.notfound) td:contains("'+search.charAt(0) + search.slice(1)+'")').each(function(){
+          $(this).closest('tr').show();
+        });
+      }else{
+        $('.notfound').show();
+      }
+    });
   
     $(document).on("click", ".statusupdate", function () {
       var dataId = $(this).attr("data-id");

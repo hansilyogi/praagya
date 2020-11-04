@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://momentjs.com/downloads/moment.js"></script>
 <?php include('header.php'); ?>
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
     <?php include('navbar.php'); ?>
       <div class="content-wrapper">        
@@ -33,7 +34,8 @@
           <div class="container-fluid table-responsive">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Display Data</h3>
+                <h3 class="card-title"></h3>
+                <input type="text" class="form-control col-3" id="txt_searchemployee" name="txt_searchemployee" placeholder="Search Here"/>
               </div>            
               <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
@@ -41,7 +43,7 @@
                     <th>Sender</th>
                     <th>Receiver</th>
                     <th>Message</th>                              
-                    <th>Image</th>                              
+                    <!-- <th>Image</th>                               -->
                     <th>Create At</th>                              
                     <th>Last Updated</th>                              
                   </tr>
