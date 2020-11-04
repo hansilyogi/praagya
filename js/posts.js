@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    loaddata();
+    loaddata_demo();
     $img_url =[];
 
     function loaddata() {
@@ -20,43 +20,71 @@ $(document).ready(function () {
               $("#displaydata").html("");
               for (i = 0; i < data.Data.length; i++) {
                 create_date = moment(data.Data[i].createdAt).format("DD/MM/YYYY");
-                // comment_date = moment(data.Data[i].Comments[0].created).format("DD/MM/YYYY");
                 $img_url[i] = data.Data[i].user_id;
-                status =
-                  data.Data[i].Status == false
-                    ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
-                      data.Data[i]._id +
-                      " data-id=" +
-                      data.Data[i]._id +
-                      ' data-up = 0 aria-hidden="true"></i>'
-                    : '<i class="fa fa-toggle-on text-success statusupdate" id=user-' +
-                      data.Data[i]._id +
-                      "  data-id=" +
-                      data.Data[i]._id +
-                      ' data-up = 1 aria-hidden="true"></i>';
-                  $("#displaydata_1").append(
-                    `<div class="row">
-                      <div class="col-md-6 mx-auto">
-                        <div class="card card-widget">
-                          <div class="card-header">
-                            <div class="user-block">
-                              <img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image">
-                              <span class="username"><a href="#">`+data.Data[i].user_id.name+`</a></span>
-                              <span class="description">Shared publicly -`+create_date+`</span>
+                      if(data.Data[i].Comments.length > 0){
+                        for(j=0; j < data.Data[i].Comments.length; j++){
+                          comment_date = moment(data.Data[i].Comments[j].created).format("DD/MM/YYYY");
+                          $("#displaydata_1").append(
+                            `<div class="row">
+                              <div class="col-md-6 mx-auto">
+                                <div class="card card-widget">
+                                  <div class="card-header">
+                                    <div class="user-block">
+                                      <img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image">
+                                      <span class="username"><a href="#">`+data.Data[i].user_id.name+`</a></span>
+                                      <span class="description">Shared publicly -`+create_date+`</span>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+data.Data[i].post_img+`" alt="Photo"><br><br>
+                                    <p> Status :`+ data.Data[i].post_data +`</p><hr>
+                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                    <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span>
+                                  </div>
+                                  <div class="card-footer card-comments">
+                                    <div class="card-comment">
+                                      <img class="img-circle img-sm" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].Comments[j].user_img+ `" alt="User Image">
+                                      <div class="comment-text">
+                                        <span class="username">
+                                        `+ data.Data[i].Comments[j].name+
+                                        `<span class="text-muted float-right">`+comment_date+ `</span>
+                                        </span>`
+                                        + data.Data[i].Comments[j].comment+
+                                      `</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>`
+                          );
+                        }
+                      }
+                      else{
+                        $("#displaydata_1").append(
+                          `<div class="row">
+                            <div class="col-md-6 mx-auto">
+                              <div class="card card-widget">
+                                <div class="card-header">
+                                  <div class="user-block">
+                                    <img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image">
+                                    <span class="username"><a href="#">`+data.Data[i].user_id.name+`</a></span>
+                                    <span class="description">Shared publicly -`+create_date+`</span>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+data.Data[i].post_img+`" alt="Photo"><br><br>
+                                  <p> Status :`+ data.Data[i].post_data +`</p><hr>
+                                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                  <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                  <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span><hr>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div class="card-body">
-                            <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+data.Data[i].post_img+`" alt="Photo"><br><br>
-                            <p> Status :`+ data.Data[i].post_data +`</p><hr>
-                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-                            <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                            <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span><hr>
-                          </div>
-                        </div>
-                      </div>
-                    </div>`
-                  );
-              }
+                          </div>`
+                        );
+                      }
+                  }
             } else {
               $("#displaydata").html(
                 '<tr><td colspan="5" class="text-center font-weight-bold">No record Found!</td></tr></center>'
@@ -83,22 +111,78 @@ $(document).ready(function () {
         success: function (data) {
           console.log(data);
           if (data.isSuccess == true) {
-            if (data.Data.length > 0) { 
+            if (data.Data.length > 0) {
               $("#displaydata").html("");
               for (i = 0; i < data.Data.length; i++) {
                 create_date = moment(data.Data[i].createdAt).format("DD/MM/YYYY");
-                // comment_date = moment(data.Data[i].Comments[0].created).format("DD/MM/YYYY");
                 $img_url[i] = data.Data[i].user_id;
-                  $("#img1").append(
-                    `<img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image"></img>`
-                  );
-                  $("#username").append(
-                    data.Data[i].user_id.name
-                  );
-                  $('#des').append(
-                    `Shared publicly - ` +create_date
-                  );
-              }
+                      if(data.Data[i].Comments.length > 0){
+                          $("#displaydata_1").append(
+                            `<div class="row">
+                              <div class="col-md-6 mx-auto">
+                                <div class="card card-widget">
+                                  <div class="card-header">
+                                    <div class="user-block">
+                                      <img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image">
+                                      <span class="username"><a href="#">`+data.Data[i].user_id.name+`</a></span>
+                                      <span class="description">Shared publicly -`+create_date+`</span>
+                                    </div>
+                                  </div>
+                                  <div class="card-body">
+                                    <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+data.Data[i].post_img+`" alt="Photo"><br><br>
+                                    <p> Status :`+ data.Data[i].post_data +`</p><hr>
+                                    <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                    <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                    <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span>
+                                  </div>`
+                                );
+                                for(j=0; j < data.Data[i].Comments.length; j++) {
+                                  comment_date = moment(data.Data[i].Comments[j].created).format("DD/MM/YYYY");
+                                  $("#displaydata_1").append(
+                                    `<div class="col-md-6 mx-auto">
+                                      <div class="card card-widget">
+                                        <div class="card-footer card-comments">
+                                          <div class="card-comment">
+                                            <img class="img-circle img-sm" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].Comments[j].user_img+ `" alt="User Image">
+                                            <div class="comment-text">
+                                              <span class="username">
+                                              `+ data.Data[i].Comments[j].name+
+                                              `<span class="text-muted float-right">`+comment_date+ `</span>
+                                              </span>`
+                                              + data.Data[i].Comments[j].comment+
+                                            `</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>`
+                                    );
+                                }
+                          }
+                      else{
+                        $("#displaydata_1").append(
+                          `<div class="row">
+                            <div class="col-md-6 mx-auto">
+                              <div class="card card-widget">
+                                <div class="card-header">
+                                  <div class="user-block">
+                                    <img class="img-circle" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].user_id.img+`" alt="User Image">
+                                    <span class="username"><a href="#">`+data.Data[i].user_id.name+`</a></span>
+                                    <span class="description">Shared publicly -`+create_date+`</span>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+data.Data[i].post_img+`" alt="Photo"><br><br>
+                                  <p> Status :`+ data.Data[i].post_data +`</p><hr>
+                                  <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                                  <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+                                  <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span><hr>
+                                </div>
+                              </div>
+                            </div>
+                          </div>`
+                        );
+                      }
+                  }
             } else {
               $("#displaydata").html(
                 '<tr><td colspan="5" class="text-center font-weight-bold">No record Found!</td></tr></center>'
@@ -139,15 +223,3 @@ $(document).ready(function () {
     });
   });
   
-{/* <div class="card-footer card-comments">
-  <div class="card-comment">
-    <img class="img-circle img-sm" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].Comments[0].user_img+ `" alt="User Image">
-    <div class="comment-text">
-      <span class="username">
-      `+ data.Data[i].Comments[0].name+
-      `<span class="text-muted float-right">`+comment_date+ `</span>
-      </span>`
-      + data.Data[i].Comments[0].comment+
-    `</div>
-  </div>
-  </div> */}
