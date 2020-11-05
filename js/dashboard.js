@@ -6,7 +6,7 @@ $(document).ready(function(){
     loadmessage();
     loadlike();
     loadreport();
-    // loadcomment();
+    loadcomment();
 
     function loaddata() {
         $.ajax({
@@ -139,6 +139,32 @@ $(document).ready(function(){
             }
             } else {
             alert(data.data);
+            }
+        },
+        });
+    }
+
+    function loadcomment() {
+        $.ajax({
+        type: "POST",
+        url: $("#website-url").attr("value") + "comment/fetch_all_comments",
+        dataType: "json",
+        cache: false,
+        beforeSend: function () {
+            $("#displaydata").html(
+            '<tr><td colspan="5" class="text-center font-weight-bold">Loading...</td></tr></center>'
+            );
+        },
+        success: function (data) {
+            // console.log(data.data);
+            if (data.isSuccess == true) {
+            if (data.Data.length > 0) {
+                $("#commentstab").text(data.Data.length);
+            } else {
+                $("#commentstab").text(0);
+            }
+            } else {
+            alert(data.Data);
             }
         },
         });
