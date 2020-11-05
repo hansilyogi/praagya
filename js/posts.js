@@ -147,10 +147,10 @@ $(document).ready(function () {
                                             <div class="comment-text">
                                               <span class="username">
                                               `+ data.Data[i].Comments[j].name+
-                                              `<span class="text-muted float-right">`+comment_date+ `</span>
-                                              </span>`
+                                              `<span class="text-muted float-right"><b>`+comment_date+ `</b></span>
+                                              </span><b>`
                                               + data.Data[i].Comments[j].comment+
-                                            `</div>
+                                            `</b></div>
                                           </div>
                                         </div>
                                       </div>
