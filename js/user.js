@@ -35,14 +35,14 @@ $(document).ready(function () {
                   <td>` +
                   data.data[i].name +
                   `</td>
-                      <td>` +
+                  <td>` +
                   data.data[i].email +
                   `</td>
                   <td>` +
                   data.data[i].personalNumber +
                   `</td>
                   <td>` +
-                  status +
+                  status+
                   `</td>` +
                   `<td>` +
                   `<a href="userview.php?id=` +
@@ -64,9 +64,6 @@ $(document).ready(function () {
     });
   }
 
-  function fun_reload(){
-    location.reload();
-  }
 
   $('#txt_searchemployee').keyup(function(){
     var search = $(this).val();
@@ -96,10 +93,12 @@ $(document).ready(function () {
             $("#user-" + dataId)
               .removeClass("fa-toggle-off text-danger")
               .addClass("fa-toggle-on text-success");
+              location.reload();
           } else {
             $("#user-" + dataId)
               .removeClass("fa-toggle-on text-success")
               .addClass("fa-toggle-off text-danger");
+              location.reload();
           }
         } else {
           alert("Something went wrong");

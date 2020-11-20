@@ -30,9 +30,8 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>User</th>
-                                <th>Likes</th>
                                 <th>Post Data</th>                               
-                                <th>Last Modified</th>                                
+                                <th>Liked on</th>                                
                             </tr>
                         </thead>
                     <tbody id="displaydata_w">

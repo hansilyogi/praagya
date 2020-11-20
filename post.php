@@ -46,6 +46,7 @@
              -->
         <div id="displaydata_1">
         </div>
+
       <footer class="main-footer">
         All rights reserved.
       </footer>

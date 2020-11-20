@@ -52,18 +52,13 @@ $(document).ready(function () {
                                         </span>`
                                         + data.Data[i].Comments[j].comment+
                                       `</div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>`
+                                    </div>`
                           );
                         }
                       }
                       else{
                         $("#displaydata_1").append(
-                          `<div class="row">
-                            <div class="col-md-6 mx-auto">
+                          `<div class="col-md-6 mx-auto">
                               <div class="card card-widget">
                                 <div class="card-header">
                                   <div class="user-block">
@@ -80,8 +75,7 @@ $(document).ready(function () {
                                   <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span><hr>
                                 </div>
                               </div>
-                            </div>
-                          </div>`
+                            </div>`
                         );
                       }
                   }
@@ -130,31 +124,32 @@ $(document).ready(function () {
                                   </div>
                                   <div class="card-body">
                                     <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+data.Data[i].post_img+`" alt="Photo"><br><br>
-                                    <p> Status :`+ data.Data[i].post_data +`</p><hr>
+                                    <h5> Status :`+ data.Data[i].post_data +`</h5><hr>
                                     <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
                                     <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-                                    <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].commentsCount + ` ` + `comments</span>
+                                    <span class="float-right text-muted">` + data.Data[i].likes +` ` + `likes -` +` `+ data.Data[i].Comments.length + ` ` + `comments</span>
+                                  </div>
+                                  <div class="card-footer card-comments">
+                                    <div id="comment_`+ i +`">
+                                      <h5>Comments</h5><hr>
+                                    </div>
                                   </div>`
                                 );
                                 for(j=0; j < data.Data[i].Comments.length; j++) {
+                                  console.log("asd");
                                   comment_date = moment(data.Data[i].Comments[j].created).format("DD/MM/YYYY");
-                                  $("#displaydata_1").append(
-                                    `<div class="col-md-6 mx-auto">
-                                      <div class="card card-widget">
-                                        <div class="card-footer card-comments">
-                                          <div class="card-comment">
-                                            <img class="img-circle img-sm" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].Comments[j].user_img+ `" alt="User Image">
-                                            <div class="comment-text">
-                                              <span class="username">
-                                              `+ data.Data[i].Comments[j].name+
-                                              `<span class="text-muted float-right"><b>`+comment_date+ `</b></span>
-                                              </span><b>`
-                                              + data.Data[i].Comments[j].comment+
-                                            `</b></div>
-                                          </div>
+                                  $("#comment_"+i).append(
+                                    `<img class="img-circle img-sm" src="http://15.206.249.190/api/uploads/users_profile_img/`+ data.Data[i].Comments[j].user_img+ `" alt="User Image">
+                                      <div class="comment-text">
+                                        <span class="username">
+                                          `+ data.Data[i].Comments[j].name+
+                                          `<span class="text-muted float-right"><b>`+comment_date+ `</b></span>
+                                        </span><b>`
+                                        + data.Data[i].Comments[j].comment+
+                                        `</b></div>
                                         </div>
                                       </div>
-                                    </div>`
+                                    <br>`
                                     );
                                 }
                           }

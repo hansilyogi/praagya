@@ -31,7 +31,7 @@
                                 <th>User Id</th>
                                 <th>Victim Id</th>
                                 <th>Date</th>                              
-                                <th>Status</th>                              
+                                <th>Blocked</th>                              
                             </tr>
                         </thead>
                     <tbody id="displaydata">

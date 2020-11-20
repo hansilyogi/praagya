@@ -18,24 +18,38 @@ $(document).ready(function () {
             if (data.Data.length > 0) {
               $("#displaydata").html("");
               for(i = 0; i < data.Data.length; i++) {
-                create_date = moment(data.Data[i].post_id.updatedAt).format("DD/MM/YYYY");
+                if(data.Data[i].post_id){
+                create_date = moment(data.Data[i].post_id.createdAt).format("DD/MM/YYYY");
                 $("#displaydata_w").append(
                   `<tr>
                     <td>` +
                     data.Data[i].user_id.name +
                     `</td>
-                    <td>` +
-                    data.Data[i].post_id.likes +
-                    `</td>
-                    <td>` +
-                    data.Data[i].post_id.post_data +
-                    `</td>
+                    <td>
+                    <img class="img-fluid pad" src="http://15.206.249.190/api/uploads/users_posts_img/`+ data.Data[i].post_id.post_img +`" alt="Photo" width="100" height="100">
+                    </td>
                     <td>` +
                     create_date +
                     `</td>
                   </tr>`
                 );
               }
+              else{
+                $("#displaydata_w").append(
+                  `<tr>
+                    <td>` +
+                    data.Data[i].user_id.name +
+                    `</td>
+                    <td>
+                    <p>No Post Found
+                    </td>
+                    <td>` +
+                    create_date +
+                    `</td>
+                  </tr>`
+                );
+              }
+            }
             } else {
               $("#displaydata").html(
                 '<tr><td colspan="5" class="text-center font-weight-bold">No record Found!</td></tr></center>'

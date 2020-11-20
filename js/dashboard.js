@@ -50,7 +50,7 @@ $(document).ready(function(){
             );
         },
         success: function (data) {
-            // console.log(data.data);
+            console.log(data.data);
             if (data.error == false) {
             if (data.data.length > 0) {
                 $("#postcount").text(data.data.length);
@@ -186,7 +186,7 @@ $(document).ready(function(){
             if (data.isSuccess == true) {
                 if (data.Data.length > 0) {
                     $("#likestab").text(data.Data.length);
-                    console.log('asd');
+                    // console.log('asd');
                 } else {
                 $("#likestab").text(0);
                 }
