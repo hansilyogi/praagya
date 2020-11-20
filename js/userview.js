@@ -77,7 +77,7 @@ $(document).ready(function () {
               data.data.schoolName +
               "</td></tr>" +
               "<tr><td>School Address</td><td>" +
-              data.data.schoolAddress +
+              `<p></p>` +
               "</td></tr>" +
               "<tr><td>School Location</td><td>" +
               "<a target='_blank' href='https://www.google.com/maps?q=" +

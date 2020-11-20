@@ -32,7 +32,8 @@
                     <th>Commented By</th>
                     <th>Comment</th>
                     <th>Commented on Date</th>
-                    <th>Post Image</th>                 
+                    <th>Post Image</th>
+                    <th>Post ID </th>              
                     <th>Posted By</th>                 
                   </tr>
                 </thead>
