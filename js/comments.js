@@ -32,6 +32,7 @@ $(document).ready(function () {
                       "  data-id=" +
                       data.Data[i]._id +
                       ' data-up = 1 aria-hidden="true"></i>';
+                if(data.Data[i].post_id){
                 $("#displaydata").append(
                   `<tr>
                     <td>` +
@@ -52,6 +53,28 @@ $(document).ready(function () {
                      </tr>`
                 );
               }
+              else{
+                $("#displaydata").append(
+                  `<tr>
+                    <td>` +
+                    data.Data[i].name +
+                    `</td>
+                    <td>` +
+                    data.Data[i].comment +
+                    `</td>
+                    <td>` +
+                    create_date +
+                    `</td>
+                    <td>
+                    <p> No Post Found
+                    </td>
+                    <td>` +
+                    `<p>NULL</p>` +
+                    `</td>
+                     </tr>`
+                );
+              }
+            }
             } else {
               $("#displaydata").html(
                 '<tr><td colspan="5" class="text-center font-weight-bold">No record Found!</td></tr></center>'
