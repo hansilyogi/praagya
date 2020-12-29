@@ -5,6 +5,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: $("#website-url").attr("value") + "user/getUsers",
+      data : { "UserId" : "5f39b8b1412523089a4a5b54"},
       dataType: "json",
       cache: false,
       beforeSend: function () {
