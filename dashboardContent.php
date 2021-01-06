@@ -56,6 +56,20 @@
                 </div>
               </a>
             </div>
+
+            <div class="col-lg-4 col-6">
+              <a href="notification.php" class="nav-link" style="text-decoration: none;color:black;" >
+                <div class="small-box" style="background-color:#008080">
+                  <div class="icon">
+                        <i class="fa fa-bell" style="color:lightgreen"></i>
+                  </div>
+                  <div class="inner">
+                    <h3><label  id="notify" name="notify" value="0"></label></h3>
+                    <h4><b>Send Notification</b></h4>
+                  </div>
+                </div>
+              </a>
+            </div>
         
           </div>
 

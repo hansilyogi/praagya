@@ -40,11 +40,11 @@
               <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                   <tr>
-                    <th>Sender</th>
-                    <th>Receiver</th>
+                    <!-- <th>Sender</th>
+                    <th>Receiver</th> -->
                     <th>Message</th>                              
                     <!-- <th>Image</th>                               -->
-                    <th>Create At</th>                              
+                    <!-- <th>Create At</th>                               -->
                     <th>Last Updated</th>                              
                   </tr>
                 </thead>

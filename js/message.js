@@ -33,14 +33,14 @@ $(document).ready(function () {
                 create_date = moment(data.data[i].createdAt).format("DD/MM/YYYY");
                 update_date = moment(data.data[i].updatedAt).format("DD/MM/YYYY");
                 $("#displaydata").append(
-                  `<tr>
-                    <td>` +
-                    data.data[i].sender_id.name +
-                    `</td>
-                        <td>` +
-                    data.data[i].receiver_id.name +
-                    `</td>
-                    <td>` +
+                  `<tr>`+
+                    // `<td>` +
+                    // data.data[i].sender_id.name +
+                    // `</td>
+                    // <td>` +
+                    // data.data[i].receiver_id.name +
+                    // `</td>
+                    `<td>` +
                     data.data[i].message +
                     `</td>
                      <td>` + 
