@@ -1,6 +1,23 @@
 $(document).ready(function () {
   loaddata();
 
+  var exdata = [];
+
+  $("#btn-excel").on("click",function(){
+    $("#example").table2excel({
+      exclude: ".noExport",
+      filename: "name-of-the-file.xls"
+    });
+  });
+  
+
+  // $("#example").dataTable({
+  //       dom: "Bfrtip",
+  //       buttons: [
+  //         'copy', 'csv', 'excel', 'pdf', 'print',
+  //       ],
+  // });
+
   function loaddata() {
     $.ajax({
       type: "POST",
@@ -10,15 +27,17 @@ $(document).ready(function () {
       cache: false,
       beforeSend: function () {
         $("#displaydata").html(
-          '<tr><td colspan="5" class="text-center font-weight-bold">Loading...</td></tr></center>'
+          '<tr><td class="text-center font-weight-bold">Loading...</td></tr></center>'
         );
       },
       success: function (data) {
-        // console.log(data.data);
+        exdata = data.data;
+        console.log(exdata);
         if (data.error == false) {
           if (data.data.length > 0) {
             $("#displaydata").html("");
             for (i = 0; i < data.data.length; i++) {
+              // console.log(" loop :" + i);
               status =
                 data.data[i].Status == false
                   ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
@@ -40,7 +59,7 @@ $(document).ready(function () {
                   data.data[i].email +
                   `</td>
                   <td>` +
-                  data.data[i].personalNumber +
+                  data.data[i].mobileNumber +
                   `</td>
                   <td>` +
                   status+
@@ -55,7 +74,7 @@ $(document).ready(function () {
             }
           } else {
             $("#displaydata").html(
-              '<tr><td colspan="5" class="text-center font-weight-bold">No record Found!</td></tr></center>'
+              '<tr><td class="text-center font-weight-bold">No record Found!</td></tr></center>'
             );
           }
         } else {

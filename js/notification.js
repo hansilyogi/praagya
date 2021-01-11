@@ -2,8 +2,8 @@ $(document).ready(function () {
     // loaddata();
 
   function loaddata() {
-      console.log("TITLE : " + $("#title").val());
-      console.log("Message : " + $("#message").val());
+      // console.log("TITLE : " + $("#title").val());
+      // console.log("Message : " + $("#message").val());
     $.ajax({
         type: "POST",
         url: $("#website-url").attr("value") + "user/sendnotification",
