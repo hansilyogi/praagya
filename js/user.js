@@ -21,8 +21,8 @@ $(document).ready(function () {
   function loaddata() {
     $.ajax({
       type: "POST",
-      url: $("#website-url").attr("value") + "user/getUsers",
-      data : { "UserId" : "5f39b8b1412523089a4a5b54"},
+      url: "http://localhost:3000/" + "api/user/getUsersweb",
+      // data : { "UserId" : "5f39b8b1412523089a4a5b54"},
       dataType: "json",
       cache: false,
       beforeSend: function () {
@@ -31,42 +31,48 @@ $(document).ready(function () {
         );
       },
       success: function (data) {
-        exdata = data.data;
+        exdata = data.Data;
         console.log(exdata);
-        if (data.error == false) {
-          if (data.data.length > 0) {
+        if (data.IsSuccess == true) {
+          if (data.Data.length > 0) {
             $("#displaydata").html("");
-            for (i = 0; i < data.data.length; i++) {
+            for (i = 0; i < data.Data.length; i++) {
               // console.log(" loop :" + i);
               status =
-                data.data[i].Status == false
+                data.Data[i].Status == false
                   ? '<i class="fa fa-toggle-off text-danger statusupdate" id=user-' +
-                    data.data[i]._id + 
+                    data.Data[i]._id + 
                     " data-id=" +
-                    data.data[i]._id + 
+                    data.Data[i]._id + 
                     ' data-up = 0 aria-hidden="true"></i>'
                   : '<i class="fa fa-toggle-on text-success statusupdate" id=user-' +
-                    data.data[i]._id +
+                    data.Data[i]._id +
                     "  data-id=" +
-                    data.data[i]._id + 
+                    data.Data[i]._id + 
                     ' data-up = 1 aria-hidden="true"></i>';
               $("#displaydata").append(
                 `<tr>
-                  <td>` +
-                  data.data[i].name +
+                  <td style="text-align: center">` +
+                  data.Data[i].name +
                   `</td>
-                  <td>` +
-                  data.data[i].email +
+                  <td style="text-align: center">` +
+                  data.Data[i].email +
                   `</td>
-                  <td>` +
-                  data.data[i].mobileNumber +
+                  <td style="text-align: center">` +
+                  data.Data[i].mobileNumber +
                   `</td>
-                  <td>` +
+                  <td style="text-align: center">` +
+                  data.Data[i].state.name +
+                  `</td>
+                  <td style="text-align: center">` +
+                  data.Data[i].affilatedWith.Name +
+                  `</td>
+                  <td style="text-align: center">` +
                   status+
                   `</td>` +
-                  `<td>` +
+                  `<td style="text-align: center">` +
                   `<a href="userview.php?id=` +
-                  data.data[i]._id +
+                  data.Data[i]._id +
                   `">View More</a>` +
                   `</td>` +
                   `</tr>`

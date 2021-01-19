@@ -46,11 +46,13 @@
         <table id="example" class="display table table-bordered table-hover nowrap" style="width:100%">
         <thead class="thead-dark">
             <tr>
-              <th>Name</th>
-              <th>Mail</th>
-              <th>Mobile</th>                                
-              <th class="noExport">Action</th>
-              <th class="noExport">View More</th>
+              <th style="text-align: center; vertical-align: middle;">Name</th>
+              <th style="text-align: center">Mail</th>
+              <th style="text-align: center">Mobile</th>                        
+              <th style="text-align: center">State</th>
+              <th style="text-align: center">Board Name</th>
+              <th style="text-align: center" class="noExport">Action</th>
+              <th style="text-align: center" class="noExport">View More</th>
             </tr>
         </thead>
         <tbody id="displaydata">
