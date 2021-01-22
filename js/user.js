@@ -21,7 +21,7 @@ $(document).ready(function () {
   function loaddata() {
     $.ajax({
       type: "POST",
-      url: "http://localhost:3000/" + "api/user/getUsersweb",
+      url: $("#website-url").attr("value") + "user/getUsersweb",
       // data : { "UserId" : "5f39b8b1412523089a4a5b54"},
       dataType: "json",
       cache: false,

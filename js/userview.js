@@ -54,7 +54,7 @@ $(document).ready(function () {
               data.data.email +
               "</td></tr>" +
               "<tr><td>Personal Number</td><td>" +
-              data.data.personalNumber +
+              data.data.mobileNumber +
               "</td></tr>" +
               "<tr><td>Whatsapp Number</td><td>" +
               data.data.whatsappNumber +
@@ -117,10 +117,7 @@ $(document).ready(function () {
                 data.data.email +
                 "</td></tr>" +
                 "<tr><td>Personal Number</td><td>" +
-                data.data.personalNumber +
-                "</td></tr>" +
-                "<tr><td>Whatsapp Number</td><td>" +
-                data.data.whatsappNumber +
+                data.data.mobileNumber +
                 "</td></tr>" +
                 "<tr><td>Country</td><td>" +
                 data.data.country.Name +
